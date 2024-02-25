@@ -76,9 +76,19 @@ end
 	\subsubsection{Enostranski Hermiteov interpolant}
 	
 	Za aproksimacijo krožnih lokov z enostranskim Hermiteovim interpolantom tipično določimo točke na krožnici, ki jih želimo interpolirati, 
-	in tangentne vektorje v teh točkah, ki so usmerjeni vzdolž tangent na krožnico v teh točkah. Vrednot parametra $L$, ki ustreza
-	enostranskemu Hermiteovemu interpolantu je  $L = \frac{4}{3} \tan(\frac{1}{4}\alpha)$.
-	Kako dosežemo to vrednost?
+	in tangentne vektorje v teh točkah, ki so usmerjeni vzdolž tangent na krožnico v teh točkah. Ideja pri tej metodi je potisniti ekstrem v $0$. 
+	Vrednot parametra $L$, ki ustreza enostranskemu Hermiteovemu interpolantu je tako $L = \frac{4}{3} \tan(\frac{1}{4}\alpha), \alpha \in [0,2\pi]$.
+	Kako dosežemo to vrednost? \\
+	\noindent\hspace*{10em}
+	\includegraphics[scale=1.5]{slika.pdf} 
+	\\
+	Iz slike vidimo, da je razdalja od izhodišča do sredine loka enaka 
+	$$r\cos(\frac{\alpha}{2}) + \frac{3}{4}Lr\sin(\frac{\alpha}{2}).$$
+	Mi bi želeli dobiti tak parameter $L$, da bo zgornja razdalja enaka radiju $r$.
+	\begin{eqnarray*}
+		r &=& r\cos(\frac{\alpha}{2}) + \frac{3}{4}Lr\sin(\frac{\alpha}{2})\\
+		L &=& \frac{3}{4} \cdot \frac{1-\cos(\frac{\alpha}{2})}{\sin(\frac{\alpha}{2})} = \frac{3}{4}\tan(\frac{\alpha}{4})
+	\end{eqnarray*}
 	
 	\section{Reševanje}
 	\subsection{Implementacija naloge}
