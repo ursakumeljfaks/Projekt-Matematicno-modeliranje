@@ -45,14 +45,14 @@
 	B\'{e}zierjeve krivulje so parametrične krivulje, pomembne v računalniški grafiki. Določene so z zaporedjem kontrolnih točk.
 	Osredotočili se bomo le na kubične B\'{e}zierjeve krivulje. Te so sestavljene iz štirih kontrolnih točk $\boldsymbol{P}_0, \boldsymbol{P}_1, \boldsymbol{P}_2, \boldsymbol{P}_3$ in imajo obliko
 	\begin{equation*}
-		b(t) = P_0(1-t)^3 + 3P_1(1-t)^2t + 3P_2(1-t)t^2 + P_3t^3, \quad t \in [0,1]
+		b(t) = \boldsymbol{P}_0(1-t)^3 + 3\boldsymbol{P}_1(1-t)^2t + 3\boldsymbol{P}_2(1-t)t^2 + \boldsymbol{P}_3t^3, \quad t \in [0,1]
 	\end{equation*}
 	Pomembne lastnonosti B\'{e}zierjevih krivulj so: 
 	\begin{enumerate}[label=(\roman*)]
 		\item Prva in zadnja kontrolna točka sta interpolacijski: 
-		$$b(0) = P_0,\quad b(1) = P_3.$$
+		$$b(0) = \boldsymbol{P}_0,\quad b(1) = \boldsymbol{P}_3.$$
 		\item Tangentna vektorja v prvi in zadnji točki sta
-		$$b'(0) = 3(P_1 - P_0),\quad b' = 3(P_3 - P_2).$$
+		$$b'(0) = 3(\boldsymbol{P}_1 - \boldsymbol{P}_0),\quad b' = 3(\boldsymbol{P}_3 - \boldsymbol{P}_2).$$
 		\item Krivulja leži v konvekcijski ovojnici kontrolnih točk.
 
 	\end{enumerate}
@@ -76,11 +76,13 @@ end
 	
 	Za aproksimacijo krožnih lokov z enostranskim Hermiteovim interpolantom tipično določimo točke na krožnici, ki jih želimo interpolirati, 
 	in tangentne vektorje v teh točkah, ki so usmerjeni vzdolž tangent na krožnico v teh točkah. Ideja pri tej metodi je potisniti srednjo točko v $0$. 
-	Vrednot parametra $L$, ki ustreza enostranskemu Hermiteovemu interpolantu, je tako $L = \frac{4}{3} \tan(\frac{1}{4}\alpha), \alpha \in [0,2\pi]$.
-	Kako dosežemo to vrednost? \\
+	Vrednsot parametra $L$, ki ustreza enostranskemu Hermiteovemu interpolantu, je tako $L = \frac{4}{3} \tan(\frac{1}{4}\alpha), \alpha \in [0,2\pi]$.
+	Kako dosežemo to vrednost? 
+	
 	\noindent\hspace*{10em}
 	\includegraphics[scale=1.5]{slika.pdf} 
-	\\
+	
+	
 	Iz slike vidimo, da je razdalja od izhodišča do sredine loka enaka 
 	$$r\cos(\frac{\alpha}{2}) + \frac{3}{4}Lr\sin(\frac{\alpha}{2}).$$
 	Mi bi želeli dobiti tak parameter $L$, da bo zgornja razdalja enaka radiju $r$.
@@ -198,8 +200,8 @@ end
 	
 	Za izračun hitrosti velja enačba $v = \sqrt{2g(-y)}$, ki velja zaradi zakona o ohranitvi energije. 
 	Kot pri prejšnji točki tudi tukaj že iz enačbe vidimo, da potrebujemo zgolj $y$ komponente točk na krivulji, zato bomo
-	uporabili \lstinline[style=Matlab-editor]!deCast!. Vse $y$ kontrolne točke sedaj enostavno vstavimo v enačbo za hitrost in
-	jo izračunamo za vsak $t \in [0,1]$. Na koncu vrnemo le absolutno vrednost zadnjega elementa vektorja, saj je pri $t = 1$ dosežena točka $T_2$.
+	uporabili funkcijo \lstinline[style=Matlab-editor]!deCast!. Vse $y$ kontrolne točke sedaj enostavno vstavimo v enačbo za hitrost in
+	jo izračunamo za vsak $t \in [0,1]$. Na koncu vrnemo le absolutno vrednost zadnjega elementa vektorja, saj je pri $t = 1$ dosežena točka $\boldsymbol{T}_2$.
 
 	\begin{lstlisting}[style=Matlab-editor,	numbers=left,]
  g = 9.81;
